@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <mapper namespace="com.jkxy.car.demo.pojo.Car">
+
+    <select id="findAll"  resultType="com.jkxy.car.demo.pojo.Car">
+        select * from goods
+        <where>
+            <if test= "fuzzy != null">
+                IFNULL(carName ," ") like  "%"#{fuzzy}"%"
+            </if>
+
+        </where>
+    </select>
+
+</mapper>
+
