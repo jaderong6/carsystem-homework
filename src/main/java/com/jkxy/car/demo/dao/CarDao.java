@@ -15,9 +15,6 @@ public interface CarDao {
     @Select("select * from carmessage where id = #{id}")
     Car findById(int id);
 
-    @Select("select * from carmessage where carName = #{carName}")
-    List<Car> findByCarName(String carName);
-
     @Delete("delete from carmessage where id = #{id}")
     void deleteById(int id);
 
@@ -33,7 +30,7 @@ public interface CarDao {
 
     //模糊查询 含分页
     @Select("select * from carmessage where carName like \"%\"#{fuzzy}\"%\" ")
-    List<Car> findAllByCarName( HashMap mapParam);
+    List<Car> findByCarName(String fuzzy);
 
     //模糊查询
     @Select("select * from carmessage where carName like \"%\"#{carName}\"%\" ")

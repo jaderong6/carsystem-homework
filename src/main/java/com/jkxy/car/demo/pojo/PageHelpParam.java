@@ -6,12 +6,12 @@ public class PageHelpParam {
     /**
      * 当前页
      */
-    private String currentPageParam ;
+    private int currentPageParam ;
 
     /**
      * 当前页条数
      */
-    private String pageSizeParam;
+    private int pageSizeParam;
 
     /**
      * 模糊查询参数fuzzy
@@ -24,19 +24,19 @@ public class PageHelpParam {
 
     private String nextFuzzy;
 
-    public String getCurrentPageParam() {
+    public int getCurrentPageParam() {
         return currentPageParam;
     }
 
-    public void setCurrentPageParam(String currentPageParam) {
+    public void setCurrentPageParam(int currentPageParam) {
         this.currentPageParam = currentPageParam;
     }
 
-    public String getPageSizeParam() {
+    public int getPageSizeParam() {
         return pageSizeParam;
     }
 
-    public void setPageSizeParam(String pageSizeParam) {
+    public void setPageSizeParam(int pageSizeParam) {
         this.pageSizeParam = pageSizeParam;
     }
 

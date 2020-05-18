@@ -3,6 +3,7 @@ package com.jkxy.car.demo.service;
 import com.jkxy.car.demo.pojo.Car;
 import com.jkxy.car.demo.pojo.PageHelpParam;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public interface CarService {
 
     Car findById(int id);
 
-    List<Car> findByCarName(String carName);
+    List<Car> findByCarName(String fuzzy);
 
     List<Car> findCar(String carName);
 

@@ -2,12 +2,14 @@ package com.jkxy.car.demo.controller;
 
 
 import com.jkxy.car.demo.pojo.Car;
+import com.jkxy.car.demo.pojo.PageHelpParam;
 import com.jkxy.car.demo.service.CarService;
 import com.jkxy.car.demo.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-//import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageInfo;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("car")
@@ -38,17 +40,6 @@ public class CarController {
         return JSONResult.ok(car);
     }
 
-    /**
-     * 通过车名查询
-     *
-     * @param carName
-     * @return
-     */
-    @GetMapping("findByCarName/{carName}")
-    public JSONResult findByCarName(@PathVariable String carName) {
-        List<Car> cars = carService.findByCarName(carName);
-        return JSONResult.ok(cars);
-    }
 
     /**
      * 通过id删除
@@ -102,13 +93,30 @@ public class CarController {
         List<Car> cars = carService.findCar(carName);
         return JSONResult.ok(cars);
     }
-}
+
 
     /**
-     * carname模糊查询
+     * 通过车名查询
+     *
+     * @param carName
+     * @return
      */
-   /* @PostMapping("/getallbycarname")
-    public PageInfo<Car> findPageV2(@RequestBody PageVo<XcrNoQueryDto> pageVo) {
-        return xcrNoService.findPageList(pageVo);
-    }*/
 
+    @GetMapping("findByCarName/{carName}")
+    public JSONResult findByCarName(@PathVariable String carName) {
+        List<Car> cars = carService.findByCarName(carName);
+        return JSONResult.ok(cars);
+    }
+
+
+    /**
+     * 作业2 车名模糊查询
+     */
+    @GetMapping("findByCarName")
+    public Map findGoodsPageHelper(PageHelpParam pageHelpParam) {
+
+        Map<String, Object> map = carService.findPageHelp(pageHelpParam);
+
+        return map;
+    }
+}
